@@ -1,3 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Comfortaa', cursive;
+  }
+  
+  body{
+    @apply bg-slate-100;
+  }
+}
+
+@layer components{
+  nav{
+    @apply fixed bottom-0 flex sm:flex md:block flex-row md:top-0 left-0 md:w-[15%] xl:w-[10%] 2xl:w-[10%] w-full sm:w-full md:h-screen md:bg-slate-100 bg-white sm:bg-white p-[18px] sm:p-[18px] md:p-0;
+  }
+
+  nav .list-group{
+    @apply w-full sm:w-full flex sm:flex md:block items-end justify-center md:w-[70%] lg:w-[70%] 2xl:w-[60%] md:mt-[3rem] mx-auto;
+  }
+
+  nav .list-group .list-group-item{
+    @apply max-w-full rounded-lg flex flex-row sm:flex-row md:flex-col items-center justify-center py-[14px] px-[20px] sm:py-[14px] sm:px-[20px] md:py-5 md:px-5 md:mb-4 md:shadow-inner-custom bg-white md:bg-gray-200;
+  }
+
+  nav .list-group .list-group-item.active{
+    @apply bg-white shadow-lg;
+  }
+
+  nav .list-group .list-group-item span:nth-child(2){
+    @apply text-xs tracking-tight mt-2 hidden sm:hidden md:block ml-3 sm:ml-3 md:ml-0;
+  }
+
+  nav .list-group .list-group-item.active span:nth-child(2){
+    @apply block font-semibold;
+  }
+
+  nav .list-group .list-group-item.active span:nth-child(1) svg{
+    @apply stroke-1 stroke-primaryColor;
+  }
+
+  nav .list-group .list-group-item.active span:nth-child(1) i, nav .list-group .list-group-item.active span:nth-child(2){
+    @apply text-primaryColor;
+  }
+}
