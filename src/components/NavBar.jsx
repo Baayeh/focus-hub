@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="">
+    <nav className="z-10">
       <ul className="list-group">
         <NavLink to='/' className={`list-group-item ${({isActive}) => isActive ? 'active': ''}`} end>
           <span className="block">
