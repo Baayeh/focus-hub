@@ -85,3 +85,38 @@
 #alarmComponent button:hover svg {
   color: #fff;
 }
+
+.p-dialog .p-inputnumber-input {
+  width: 20%;
+  text-align: center;
+  font-size: 50px;
+  padding: 0;
+  border: none;
+}
+
+.p-dialog .am-pm {
+  width: 25%;
+  font-size: 50px;
+}
+
+.p-dialog .time-divider {
+  width: 50%;
+  text-align: center;
+  font-size: 50px;
+}
+
+.timer-container button {
+  font-size: 26px;
+}
+
+@media (min-width: 320px) {
+  .p-dialog {
+    width: 90vw !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .p-dialog {
+    width: 30vw !important;
+  }
+}
