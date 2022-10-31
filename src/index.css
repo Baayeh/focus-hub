@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,4 +56,32 @@
   nav .list-group .list-group-item.active span:nth-child(2) {
     @apply text-primaryColor;
   }
+
+  #alarmComponent {
+    @apply min-h-full bg-white py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
+  }
+
+  #alarmComponent .add-button-container {
+    @apply fixed right-[20px] bottom-[100px] md:right-[50%] md:translate-x-[50%] lg:right-[30px] lg:translate-x-0 lg:bottom-[30px];
+  }
+
+  #alarmComponent button {
+    @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center;
+  }
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: theme("colors.secondaryColor") !important;
+}
+
+#alarmComponent button svg {
+  font-size: 35px;
+}
+
+#alarmComponent button:hover {
+  background: theme("colors.secondaryColor");
+}
+
+#alarmComponent button:hover svg {
+  color: #fff;
 }

@@ -1,15 +1,19 @@
 import AlarmBox from "../components/AlarmBox";
+import { BsPlusCircleDotted } from "react-icons/bs";
 
 const Alarm = () => {
   return (
-    <section
-      id="bg-white"
-      className="min-h-full bg-white py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max"
-    >
+    <section id="alarmComponent" className="">
       <AlarmBox />
       <AlarmBox />
       <AlarmBox />
       <AlarmBox />
+
+      <div className="add-button-container">
+        <button type="button" className="">
+          <BsPlusCircleDotted />
+        </button>
+      </div>
     </section>
   );
 };
