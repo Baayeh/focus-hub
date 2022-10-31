@@ -7,7 +7,7 @@ import { GrPowerReset, GrAdd } from 'react-icons/gr'
 const Timer = () => {
   return (
     <section id='timer-section' className='relative z-0 p-3 mb-24 flex flex-col gap-5 md:grid md:grid-cols-2 lg:grid-cols-3'>
-      <div className='timer-card bg-white p-3 rounded-md'>
+      <div className='timer-card'>
         <div className="timer-head flex justify-between items-center text-primaryColor">
           <p>1 min</p>
           <div className='head-actions'>
@@ -41,7 +41,7 @@ const Timer = () => {
         </div>
       </div>
 
-      <div className='timer-card bg-white p-3 rounded-md'>
+      <div className='timer-card'>
         <div className="timer-head flex justify-between items-center text-primaryColor">
           <p>3 min</p>
           <div className='head-actions'>
@@ -75,7 +75,7 @@ const Timer = () => {
         </div>
       </div>
 
-      <div className='timer-card bg-white p-3 rounded-md'>
+      <div className='timer-card'>
         <div className="timer-head flex justify-between items-center text-primaryColor">
           <p>5 min</p>
           <div className='head-actions'>
@@ -109,7 +109,7 @@ const Timer = () => {
         </div>
       </div>
 
-      <div className='timer-card bg-white p-3 rounded-md'>
+      <div className='timer-card'>
         <div className="timer-head flex justify-between items-center text-primaryColor">
           <p>10 min</p>
           <div className='head-actions'>
