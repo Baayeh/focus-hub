@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { InputNumber } from "primereact/inputnumber";
 import { InputSwitch } from "primereact/inputswitch";
-import { Checkbox } from "primereact/checkbox";
-import { FaAngleUp, FaAngleDown } from "react-icons/fa";
+import { ToggleButton } from "primereact/togglebutton";
+import { FaAngleUp, FaAngleDown, FaTimes } from "react-icons/fa";
+import { BsCheckAll } from "react-icons/bs";
 
 const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
   const [hour, setHour] = useState("12");
@@ -28,7 +29,26 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
   };
 
   const renderFooter = () => {
-    return <div></div>;
+    return (
+      <div className="flex items-center justify-center mt-4 space-x-2">
+        <button
+          onClick={() => setDisplayDialog(false)}
+          type="button"
+          className="bg-secondaryColor text-white px-5 py-3 rounded-lg text-sm flex items-center"
+        >
+          <FaTimes className="text-lg"></FaTimes>
+          <span className="d-block ml-1">Cancel</span>
+        </button>
+
+        <button
+          type="button"
+          className="bg-primaryColor text-white px-5 py-3 rounded-lg text-sm flex items-center"
+        >
+          <BsCheckAll className="text-lg"></BsCheckAll>
+          <span className="d-block ml-1">Save</span>
+        </button>
+      </div>
+    );
   };
 
   return (
@@ -127,7 +147,7 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
             </div>
           </section>
 
-          <div className="form-group flex items-center mt-3">
+          <div className="form-group flex items-center mt-5">
             <InputSwitch
               checked={repeatAlarm}
               onChange={(e) => setRepeatAlarm(e.value)}
@@ -140,52 +160,14 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
             </label>
           </div>
 
-          <div className="flex items-center justify-between mt-4">
-            <div className="field-checkbox">
-              <Checkbox inputId="city1" name="city" value="Chicago" />
-              <label htmlFor="city1" className="ml-1">
-                Sun
-              </label>
-            </div>
-            <div className="field-checkbox">
-              <Checkbox inputId="city2" name="city" value="Los Angeles" />
-              <label htmlFor="city2" className="ml-1">
-                Mon
-              </label>
-            </div>
-            <div className="field-checkbox">
-              <Checkbox inputId="city3" name="city" value="New York" />
-              <label htmlFor="city3" className="ml-1">
-                Tue
-              </label>
-            </div>
-            <div className="field-checkbox">
-              <Checkbox inputId="city4" name="city" value="San Francisco" />
-              <label htmlFor="city4" className="ml-1">
-                Wed
-              </label>
-            </div>
-
-            <div className="field-checkbox">
-              <Checkbox inputId="city4" name="city" value="San Francisco" />
-              <label htmlFor="city4" className="ml-1">
-                Thur
-              </label>
-            </div>
-
-            <div className="field-checkbox">
-              <Checkbox inputId="city4" name="city" value="San Francisco" />
-              <label htmlFor="city4" className="ml-1">
-                Fri
-              </label>
-            </div>
-
-            <div className="field-checkbox">
-              <Checkbox inputId="city4" name="city" value="San Francisco" />
-              <label htmlFor="city4" className="ml-1">
-                Sat
-              </label>
-            </div>
+          <div className="flex items-center justify-between mt-7">
+            <ToggleButton aria-label="Sun" onLabel="Sun" offLabel="Sun" />
+            <ToggleButton aria-label="Mon" onLabel="Mon" offLabel="Mon" />
+            <ToggleButton aria-label="Tue" onLabel="Tue" offLabel="Tue" />
+            <ToggleButton aria-label="Wed" onLabel="Wed" offLabel="Wed" />
+            <ToggleButton aria-label="Thu" onLabel="Thu" offLabel="Thu" />
+            <ToggleButton aria-label="Fri" onLabel="Fri" offLabel="Fri" />
+            <ToggleButton aria-label="Sat" onLabel="Sat" offLabel="Sat" />
           </div>
         </form>
       </Dialog>

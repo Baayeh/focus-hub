@@ -8,7 +8,7 @@ const AlarmBox = () => {
   const days = ["Su", "M", "Tu", "We", "Th", "Fri", "Sa"];
 
   return (
-    <div className="alarm-box bg-white rounded-xl shadow-white-shadow h-max p-5 cursor-pointer">
+    <div className="alarm-box">
       <div className="flex items-center justify-between">
         <h6 className="text-md mb-2 font-extrabold">Work</h6>
 

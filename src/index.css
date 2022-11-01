@@ -58,7 +58,7 @@
   }
 
   #alarmComponent {
-    @apply min-h-full bg-white py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
+    @apply min-h-full bg-slate-50 py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
   }
 
   #alarmComponent .add-button-container {
@@ -67,6 +67,10 @@
 
   #alarmComponent button {
     @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center;
+  }
+
+  .alarm-box {
+    @apply bg-white rounded-xl shadow-white-shadow h-max p-5 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out;
   }
 }
 
@@ -109,14 +113,33 @@
   font-size: 26px;
 }
 
+.p-togglebutton.p-button {
+  padding: 0 !important;
+  border-radius: 50%;
+  border: 1px solid theme("colors.primaryColor") !important;
+  color: theme("colors.primaryColor") !important;
+}
+
 @media (min-width: 320px) {
   .p-dialog {
-    width: 90vw !important;
+    width: 95vw !important;
+  }
+
+  .p-togglebutton.p-button {
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
   }
 }
 
 @media (min-width: 768px) {
   .p-dialog {
     width: 30vw !important;
+  }
+
+  .p-togglebutton.p-button {
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
   }
 }
