@@ -21,7 +21,7 @@
 
 @layer components {
   nav {
-    @apply fixed bottom-0 flex sm:flex md:block flex-row md:top-0 left-0 md:w-[15%] xl:w-[10%] 2xl:w-[10%] w-full sm:w-full md:h-screen md:bg-slate-200 bg-white sm:bg-white p-[18px] sm:p-[18px] md:p-0;
+    @apply fixed z-20 bottom-0 flex sm:flex md:block flex-row md:top-0 left-0 md:w-[15%] xl:w-[10%] 2xl:w-[10%] w-full sm:w-full md:h-screen md:bg-slate-200 bg-white sm:bg-white p-[18px] sm:p-[18px] md:p-0;
   }
 
   nav .list-group {
@@ -65,12 +65,16 @@
     @apply fixed right-[20px] bottom-[100px] md:right-[50%] md:translate-x-[50%] lg:right-[30px] lg:translate-x-0 lg:bottom-[30px];
   }
 
-  #alarmComponent button {
+  #alarmComponent .add-button-container button {
     @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center;
   }
 
   .alarm-box {
     @apply bg-white rounded-xl shadow-white-shadow h-max p-5 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out;
+  }
+
+  .alarm-box .removeBtn svg {
+    @apply text-[20px] text-red-700;
   }
 }
 
@@ -78,7 +82,7 @@
   background: theme("colors.secondaryColor") !important;
 }
 
-#alarmComponent button svg {
+#alarmComponent .add-button-container button svg {
   font-size: 35px;
 }
 
@@ -118,6 +122,26 @@
   border-radius: 50%;
   border: 1px solid theme("colors.primaryColor") !important;
   color: theme("colors.primaryColor") !important;
+}
+
+.p-dropdown.p-component {
+  width: 100% !important;
+}
+
+.p-dropdown.p-component .p-dropdown-label.p-inputtext {
+  padding: 9px !important;
+}
+
+.p-inputtext:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem theme("colors.primaryLightColor");
+  border-color: theme("colors.primaryColor");
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: theme("colors.primaryColor");
 }
 
 @media (min-width: 320px) {

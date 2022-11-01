@@ -5,6 +5,17 @@ import { InputSwitch } from "primereact/inputswitch";
 import { ToggleButton } from "primereact/togglebutton";
 import { FaAngleUp, FaAngleDown, FaTimes } from "react-icons/fa";
 import { BsCheckAll } from "react-icons/bs";
+import { Dropdown } from "primereact/dropdown";
+import { IoMusicalNoteOutline } from "react-icons/io5";
+import { BiAlarmSnooze } from "react-icons/bi";
+
+const snoozeTimeList = [
+  { name: "Disabled", code: "none" },
+  { name: "5 Minutes", code: "5min" },
+  { name: "10 Minutes", code: "10min" },
+  { name: "20 Minutes", code: "20min" },
+  { name: "30 Minutes", code: "30min" },
+];
 
 const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
   const [hour, setHour] = useState("12");
@@ -60,13 +71,15 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
         footer={renderFooter}
         onHide={() => setDisplayDialog(false)}
         closable={false}
+        closeOnEscape={true}
+        dismissableMask={true}
       >
         <form action="" className="mt-2">
           <div className="form-group mb-3">
             <input
               type="text"
               placeholder="Set Alarm Name"
-              className="form-control w-full border border-gray-300 p-4 h-[50px] border-l-0 border-r-0 border-t-0 focus:border focus:outline-none focus:ring-2 ring-offset-0"
+              className="form-control w-full border border-gray-300 p-4 h-[50px] border-l-0 border-r-0 border-t-0 focus:border focus:outline-none focus:ring-2 ring-offset-0 ring-primaryLightColor"
             />
           </div>
 
@@ -168,6 +181,20 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
             <ToggleButton aria-label="Thu" onLabel="Thu" offLabel="Thu" />
             <ToggleButton aria-label="Fri" onLabel="Fri" offLabel="Fri" />
             <ToggleButton aria-label="Sat" onLabel="Sat" offLabel="Sat" />
+          </div>
+
+          <div className="form-group mt-5 flex items-center">
+            <IoMusicalNoteOutline className="text-2xl mr-5"></IoMusicalNoteOutline>
+            <Dropdown optionLabel="name" placeholder="Select Alarm Music" />
+          </div>
+
+          <div className="form-group mt-5 flex items-center">
+            <BiAlarmSnooze className="text-2xl mr-5"></BiAlarmSnooze>
+            <Dropdown
+              optionLabel="name"
+              placeholder="Select Snooze Time"
+              options={snoozeTimeList}
+            />
           </div>
         </form>
       </Dialog>
