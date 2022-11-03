@@ -7,6 +7,7 @@ module.exports = {
         primaryColor: "#dd1818",
         secondaryColor: "#333333",
         primaryLightColor: "rgb(221 24 24 / 34%)",
+        primaryDarkColor: "#b50b0b",
       },
       boxShadow: {
         "inner-custom": "inset 0 2px 4px 0 rgb(0 0 0 / 0.15)",

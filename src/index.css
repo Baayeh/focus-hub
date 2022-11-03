@@ -140,6 +140,11 @@
   width: 100% !important;
 }
 
+.p-inputtext,
+.p-input-icon-right {
+  width: 100%;
+}
+
 .p-dropdown.p-component .p-dropdown-label.p-inputtext {
   padding: 9px !important;
 }
@@ -156,6 +161,10 @@
   border-color: theme("colors.primaryColor");
 }
 
+.add-location-dialog button {
+  width: 100% !important;
+}
+
 @media (min-width: 320px) {
   .p-dialog {
     width: 95vw !important;
@@ -170,12 +179,18 @@
 
 @media (min-width: 768px) {
   .p-dialog {
-    width: 30vw !important;
+    width: 50vw !important;
   }
 
   .p-togglebutton.p-button {
     width: 40px;
     height: 40px;
     font-size: 11px;
+  }
+}
+
+@media (min-width: 1204px) {
+  .p-dialog {
+    width: 30vw !important;
   }
 }
