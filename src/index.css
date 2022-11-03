@@ -76,6 +76,18 @@
   .alarm-box .removeBtn svg {
     @apply text-[20px] text-red-700;
   }
+
+  #world-clock {
+    @apply min-h-full bg-slate-50;
+  }
+
+  #world-clock svg {
+    @apply inline align-middle;
+  }
+
+  #world-clock path {
+    @apply fill-slate-600;
+  }
 }
 
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {

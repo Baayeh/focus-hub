@@ -105,7 +105,7 @@ const NavBar = () => {
         </NavLink>
 
         <NavLink
-          to="world_clock"
+          to="world-clock"
           className={({ isActive }) =>
             isActive ? "list-group-item active" : "list-group-item"
           }

@@ -6,6 +6,7 @@ import Layout from "./routes/Layout";
 import Timer from "./routes/Timer";
 import Focus from "./routes/Focus";
 import Alarm from "./routes/Alarm";
+import WorldClock from "./routes/WorldClock";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "alarm",
         element: <Alarm />,
+      },
+      {
+        path: "world-clock",
+        element: <WorldClock />,
       },
     ],
   },
