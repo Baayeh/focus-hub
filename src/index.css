@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,5 +50,9 @@
 
   nav .list-group .list-group-item.active span:nth-child(1) i, nav .list-group .list-group-item.active span:nth-child(2){
     @apply text-primaryColor;
+  }
+
+  div.timer-card {
+    @apply bg-white p-3 rounded-md hover:cursor-pointer hover:shadow-lg shadow-black hover:bg-transparent hover:transition hover:-translate-y-1 hover:scale-100 ease-in-out duration-300;
   }
 }
