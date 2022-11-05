@@ -94,6 +94,10 @@
   }
 }
 
+div.timer-card {
+  @apply bg-white p-3 rounded-md hover:cursor-pointer hover:shadow-lg shadow-black hover:bg-transparent hover:transition hover:-translate-y-1 hover:scale-100 ease-in-out duration-300;
+}
+
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
   background: theme("colors.secondaryColor") !important;
 }
@@ -196,7 +200,5 @@
 @media (min-width: 1204px) {
   .add-alarm-dialog {
     width: 30vw !important;
-  div.timer-card {
-    @apply bg-white p-3 rounded-md hover:cursor-pointer hover:shadow-lg shadow-black hover:bg-transparent hover:transition hover:-translate-y-1 hover:scale-100 ease-in-out duration-300;
   }
 }
