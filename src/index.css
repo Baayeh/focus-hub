@@ -106,7 +106,7 @@
   color: #fff;
 }
 
-.p-dialog .p-inputnumber-input {
+.add-alarm-dialog .p-inputnumber-input {
   width: 20%;
   text-align: center;
   font-size: 50px;
@@ -114,12 +114,12 @@
   border: none;
 }
 
-.p-dialog .am-pm {
+.add-alarm-dialog .am-pm {
   width: 25%;
   font-size: 50px;
 }
 
-.p-dialog .time-divider {
+.add-alarm-dialog .time-divider {
   width: 50%;
   text-align: center;
   font-size: 50px;
@@ -166,7 +166,7 @@
 }
 
 @media (min-width: 320px) {
-  .p-dialog {
+  .add-alarm-dialog {
     width: 95vw !important;
   }
 
@@ -178,7 +178,7 @@
 }
 
 @media (min-width: 768px) {
-  .p-dialog {
+  .add-alarm-dialog {
     width: 50vw !important;
   }
 
@@ -190,7 +190,7 @@
 }
 
 @media (min-width: 1204px) {
-  .p-dialog {
+  .add-alarm-dialog {
     width: 30vw !important;
   }
 }

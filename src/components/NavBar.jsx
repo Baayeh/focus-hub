@@ -6,10 +6,11 @@ const NavBar = () => {
     <nav className="">
       <ul className="list-group">
         <NavLink
-          to="focus-session"
+          to="/"
           className={({ isActive }) =>
             isActive ? "list-group-item active" : "list-group-item"
           }
+          end
         >
           <span className="block">
             <svg

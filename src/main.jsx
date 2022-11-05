@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "focus-session",
+        index: true,
         element: <Focus />,
       },
       {

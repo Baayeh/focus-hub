@@ -73,6 +73,7 @@ const AddAlarm = ({ displayDialog, setDisplayDialog }) => {
         closable={false}
         closeOnEscape={true}
         dismissableMask={true}
+        className="add-alarm-dialog"
       >
         <form action="" className="mt-2">
           <div className="form-group mb-3">
