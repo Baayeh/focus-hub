@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
 
 @import "primereact/resources/themes/lara-light-indigo/theme.css";
 @import "primereact/resources/primereact.min.css";
@@ -8,51 +12,193 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
+@layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Comfortaa', cursive;
+    font-family: "Comfortaa", cursive;
   }
-  
-  body{
-    @apply bg-slate-100;
+
+  body {
+    @apply bg-slate-200;
   }
 }
 
-@layer components{
-  nav{
-    @apply fixed bottom-0 flex sm:flex md:block flex-row md:top-0 left-0 md:w-[15%] xl:w-[10%] 2xl:w-[10%] w-full sm:w-full md:h-screen md:bg-slate-100 bg-white sm:bg-white p-[18px] sm:p-[18px] md:p-0;
+@layer components {
+  nav {
+    @apply fixed z-20 bottom-0 flex sm:flex md:block flex-row md:top-0 left-0 md:w-[15%] xl:w-[10%] 2xl:w-[10%] w-full sm:w-full md:h-screen md:bg-slate-200 bg-white sm:bg-white p-[18px] sm:p-[18px] md:p-0;
   }
 
-  nav .list-group{
+  nav .list-group {
     @apply w-full sm:w-full flex sm:flex md:block items-end justify-center md:w-[70%] lg:w-[70%] 2xl:w-[60%] md:mt-[3rem] mx-auto;
   }
 
-  nav .list-group .list-group-item{
+  nav .list-group .list-group-item {
     @apply max-w-full rounded-lg flex flex-row sm:flex-row md:flex-col items-center justify-center py-[14px] px-[20px] sm:py-[14px] sm:px-[20px] md:py-5 md:px-5 md:mb-4 md:shadow-inner-custom bg-white md:bg-gray-200;
   }
 
-  nav .list-group .list-group-item.active{
+  nav .list-group .list-group-item.active {
     @apply bg-white shadow-lg;
   }
 
-  nav .list-group .list-group-item span:nth-child(2){
+  nav .list-group .list-group-item:hover {
+    @apply bg-white shadow-lg;
+  }
+
+  nav .list-group .list-group-item span:nth-child(2) {
     @apply text-xs tracking-tight mt-2 hidden sm:hidden md:block ml-3 sm:ml-3 md:ml-0;
   }
 
-  nav .list-group .list-group-item.active span:nth-child(2){
+  nav .list-group .list-group-item.active span:nth-child(2) {
     @apply block font-semibold;
   }
 
-  nav .list-group .list-group-item.active span:nth-child(1) svg{
+  nav .list-group .list-group-item.active span:nth-child(1) svg {
     @apply stroke-1 stroke-primaryColor;
   }
 
-  nav .list-group .list-group-item.active span:nth-child(1) i, nav .list-group .list-group-item.active span:nth-child(2){
+  nav .list-group .list-group-item.active span:nth-child(1) i,
+  nav .list-group .list-group-item.active span:nth-child(2) {
     @apply text-primaryColor;
   }
 
-  div.timer-card {
-    @apply bg-white p-3 rounded-md hover:cursor-pointer hover:shadow-lg shadow-black hover:bg-transparent hover:transition hover:-translate-y-1 hover:scale-100 ease-in-out duration-300;
+  #alarmComponent {
+    @apply min-h-full bg-slate-50 py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
+  }
+
+  #alarmComponent .add-button-container {
+    @apply fixed right-[20px] bottom-[100px] md:right-[50%] md:translate-x-[50%] lg:right-[30px] lg:translate-x-0 lg:bottom-[30px];
+  }
+
+  #alarmComponent .add-button-container button {
+    @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center;
+  }
+
+  .alarm-box {
+    @apply bg-white rounded-xl shadow-white-shadow h-max p-5 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out;
+  }
+
+  .alarm-box .removeBtn svg {
+    @apply text-[20px] text-red-700;
+  }
+
+  #world-clock {
+    @apply min-h-full bg-slate-50;
+  }
+
+  #world-clock svg {
+    @apply inline align-middle;
+  }
+
+  #world-clock path {
+    @apply fill-slate-600;
+  }
+}
+
+div.timer-card {
+  @apply bg-white p-3 rounded-md hover:cursor-pointer hover:shadow-lg shadow-black hover:bg-transparent hover:transition hover:-translate-y-1 hover:scale-100 ease-in-out duration-300;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: theme("colors.secondaryColor") !important;
+}
+
+#alarmComponent .add-button-container button svg {
+  font-size: 35px;
+}
+
+#alarmComponent button:hover {
+  background: theme("colors.secondaryColor");
+}
+
+#alarmComponent button:hover svg {
+  color: #fff;
+}
+
+.add-alarm-dialog .p-inputnumber-input {
+  width: 20%;
+  text-align: center;
+  font-size: 50px;
+  padding: 0;
+  border: none;
+}
+
+.add-alarm-dialog .am-pm {
+  width: 25%;
+  font-size: 50px;
+}
+
+.add-alarm-dialog .time-divider {
+  width: 50%;
+  text-align: center;
+  font-size: 50px;
+}
+
+.timer-container button {
+  font-size: 26px;
+}
+
+.p-togglebutton.p-button {
+  padding: 0 !important;
+  border-radius: 50%;
+  border: 1px solid theme("colors.primaryColor") !important;
+  color: theme("colors.primaryColor") !important;
+}
+
+.p-dropdown.p-component {
+  width: 100% !important;
+}
+
+.p-inputtext,
+.p-input-icon-right {
+  width: 100%;
+}
+
+.p-dropdown.p-component .p-dropdown-label.p-inputtext {
+  padding: 9px !important;
+}
+
+.p-inputtext:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem theme("colors.primaryLightColor");
+  border-color: theme("colors.primaryColor");
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: theme("colors.primaryColor");
+}
+
+.add-location-dialog button {
+  width: 100% !important;
+}
+
+@media (min-width: 320px) {
+  .add-alarm-dialog {
+    width: 95vw !important;
+  }
+
+  .p-togglebutton.p-button {
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .add-alarm-dialog {
+    width: 50vw !important;
+  }
+
+  .p-togglebutton.p-button {
+    width: 40px;
+    height: 40px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1204px) {
+  .add-alarm-dialog {
+    width: 30vw !important;
   }
 }

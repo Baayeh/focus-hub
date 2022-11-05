@@ -3,9 +3,15 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="z-10">
+    <nav className="">
       <ul className="list-group">
-        <NavLink to='/' className={`list-group-item ${({isActive}) => isActive ? 'active': ''}`} end>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "list-group-item active" : "list-group-item"
+          }
+          end
+        >
           <span className="block">
             <svg
               className="w-6 h-6"
@@ -24,27 +30,38 @@ const NavBar = () => {
           </span>
           <span className="">Focus</span>
         </NavLink>
-        <NavLink to='/timer' className={`list-group-item ${({isActive}) => isActive ? 'active': ''}`}>
-            <span className="block">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
-            </span>
-            <span className="">Timer</span>
+
+        <NavLink
+          to="timer"
+          className={({ isActive }) =>
+            isActive ? "list-group-item active" : "list-group-item"
+          }
+        >
+          <span className="block">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </span>
+          <span className="">Timer</span>
         </NavLink>
 
-        <li className="list-group-item">
+        <NavLink
+          to="alarm"
+          className={({ isActive }) =>
+            isActive ? "list-group-item active" : "list-group-item"
+          }
+        >
           <span className="block">
             <svg
               className="w-6 h-6"
@@ -62,9 +79,14 @@ const NavBar = () => {
             </svg>
           </span>
           <span className="">Alarm</span>
-        </li>
+        </NavLink>
 
-        <li className="list-group-item">
+        <NavLink
+          to="stopwatch"
+          className={({ isActive }) =>
+            isActive ? "list-group-item active" : "list-group-item"
+          }
+        >
           <span className="block">
             <svg
               className="w-6 h-6"
@@ -82,9 +104,14 @@ const NavBar = () => {
             </svg>
           </span>
           <span className="">Stopwatch</span>
-        </li>
+        </NavLink>
 
-        <li className="list-group-item ">
+        <NavLink
+          to="world-clock"
+          className={({ isActive }) =>
+            isActive ? "list-group-item active" : "list-group-item"
+          }
+        >
           <span className="block">
             <svg
               className="w-6 h-6"
@@ -102,7 +129,7 @@ const NavBar = () => {
             </svg>
           </span>
           <span className="">Clock</span>
-        </li>
+        </NavLink>
       </ul>
     </nav>
   );
