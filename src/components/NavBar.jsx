@@ -30,6 +30,7 @@ const NavBar = () => {
           </span>
           <span className="">Focus</span>
         </NavLink>
+
         <NavLink
           to="timer"
           className={({ isActive }) =>
