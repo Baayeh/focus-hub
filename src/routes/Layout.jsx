@@ -15,7 +15,7 @@ const Layout = () => {
   return (
     <div className="flex align-items-center min-h-screen relative">
       <NavBar navBar={navBar} />
-      <main className="md:ml-[15%] xl:ml-[10%] 2xl:w-[10%] ml-0 sm:ml-0 w-full overflow-hidden">
+      <main className="md:ml-[15%] xl:ml-[10%] ml-0 sm:ml-0 w-full overflow-hidden">
         <Outlet context={current} />
       </main>
     </div>
