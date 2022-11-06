@@ -11,6 +11,7 @@ const Stopwatch = () => {
   const [timer, setTimer] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const stopwatch = useRef();
+  const stopwatchBody = useRef();
   const current = useOutletContext();
   const [isHidden, setIsHidden] = useState(false);
 
@@ -19,16 +20,26 @@ const Stopwatch = () => {
     setIsHidden(true);
     stopwatch.current.classList.add(
       'translate-y-16',
-      '-translate-x-16',
+      'md:translate-y-16',
+      'md:-translate-x-16',
       'transition',
       'ease-in-out',
       'duration-300'
     );
+
+    stopwatchBody.current.classList.remove('stopwatch-body');
+    stopwatchBody.current.classList.add('stopwatchExpand-body');
   };
 
   const restoreSection = () => {
     setIsHidden(false);
-    stopwatch.current.classList.remove('translate-y-16', '-translate-x-16');
+    stopwatch.current.classList.remove(
+      'translate-y-16',
+      'md:translate-y-16',
+      'md:-translate-x-16'
+    );
+    stopwatchBody.current.classList.add('stopwatch-body');
+    stopwatchBody.current.classList.remove('stopwatchExpand-body');
     current.style.display = 'block';
   };
 
@@ -64,19 +75,21 @@ const Stopwatch = () => {
     <section className="stopwatch" ref={stopwatch}>
       <div className="header-actions">
         {!isHidden ? (
-          <button type="button" onClick={expandSection}>
-            <BiExpandAlt className="text-xl" />
-          </button>
+          <>
+            <button type="button" onClick={expandSection}>
+              <BiExpandAlt className="text-xl" />
+            </button>
+            <button type="button" className="ml-4">
+              <TbPictureInPictureTop className="text-xl" />
+            </button>
+          </>
         ) : (
           <button type="button" onClick={restoreSection}>
             <BsArrowsAngleContract className="text-xl" />
           </button>
         )}
-        <button type="button" className="ml-4">
-          <TbPictureInPictureTop className="text-xl" />
-        </button>
       </div>
-      <div className="stopwatch-body">
+      <div className="stopwatch-body" ref={stopwatchBody}>
         <span className="digits">
           {('0' + Math.floor((count / 360000000) % 60)).slice(-2)}
           <span className="text-xl md:text-2xl">hr</span>

@@ -182,7 +182,11 @@ div.timer-card {
 }
 
 .stopwatch-body {
-  @apply flex items-baseline text-6xl md:text-8xl;
+  @apply flex items-baseline text-6xl md:text-8xl transition ease-in-out duration-300;
+}
+
+.stopwatchExpand-body {
+  @apply flex items-baseline text-7xl md:text-9xl transition ease-in-out duration-300;
 }
 
 .digits {
