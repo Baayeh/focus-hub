@@ -1,7 +1,8 @@
-import React from "react";
-import FocusComponent from "../components/FocusComponent";
-import FocusProgress from "../components/FocusProgress";
-import MusicPlaylist from "../components/musicPlaylist";
+import React from 'react';
+import FocusComponent from '../components/FocusComponent';
+import FocusProgress from '../components/FocusProgress';
+import MusicPlaylist from '../components/musicPlaylist';
+import TodoComponent from '../components/TodoComponent';
 
 const Focus = () => {
   return (
@@ -12,7 +13,7 @@ const Focus = () => {
       <div className="focus-todo-section">
         <FocusComponent />
         <div className="card bg-white shadow-white-shadow rounded-lg mb-3">
-          <div className="card-body p-3">Todo</div>
+          <TodoComponent />
         </div>
       </div>
       <div className="progress-entertainment w-[100%]">
