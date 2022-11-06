@@ -15,7 +15,7 @@ const Focus = () => {
           <div className="card-body p-3">Todo</div>
         </div>
       </div>
-      <div className="progress-entertainment w-[100%] lg:w-[80%]">
+      <div className="progress-entertainment w-[100%]">
         <div className="card bg-white shadow-white-shadow rounded-lg mb-3">
           <div className="card-body p-4">
             <FocusProgress></FocusProgress>

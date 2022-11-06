@@ -1,6 +1,6 @@
 const PlaylistMix = () => {
   return (
-    <div className="playlist-mix p-2 bg-gray-100 rounded-lg">
+    <div className="playlist-mix p-2 bg-gray-100 rounded-lg cursor-pointer">
       <div
         className="album-cover relative w-full min-h-[120px] bg-cover bg-center"
         style={{
