@@ -1,14 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ navBar }) => {
   return (
-    <nav className="">
+    <nav ref={navBar}>
       <ul className="list-group">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "list-group-item active" : "list-group-item"
+            isActive ? 'list-group-item active' : 'list-group-item'
           }
           end
         >
@@ -34,7 +34,7 @@ const NavBar = () => {
         <NavLink
           to="timer"
           className={({ isActive }) =>
-            isActive ? "list-group-item active" : "list-group-item"
+            isActive ? 'list-group-item active' : 'list-group-item'
           }
         >
           <span className="block">
@@ -59,7 +59,7 @@ const NavBar = () => {
         <NavLink
           to="alarm"
           className={({ isActive }) =>
-            isActive ? "list-group-item active" : "list-group-item"
+            isActive ? 'list-group-item active' : 'list-group-item'
           }
         >
           <span className="block">
@@ -84,7 +84,7 @@ const NavBar = () => {
         <NavLink
           to="stopwatch"
           className={({ isActive }) =>
-            isActive ? "list-group-item active" : "list-group-item"
+            isActive ? 'list-group-item active' : 'list-group-item'
           }
         >
           <span className="block">
@@ -109,7 +109,7 @@ const NavBar = () => {
         <NavLink
           to="world-clock"
           className={({ isActive }) =>
-            isActive ? "list-group-item active" : "list-group-item"
+            isActive ? 'list-group-item active' : 'list-group-item'
           }
         >
           <span className="block">
