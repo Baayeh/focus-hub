@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEllipsisH } from "react-icons/fa";
+import { TbDots } from "react-icons/tb";
 import { BsSpotify } from "react-icons/bs";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
@@ -20,7 +20,7 @@ const MusicPlaylist = () => {
         </div>
 
         <button type="button" className="p-2">
-          <FaEllipsisH></FaEllipsisH>
+          <TbDots></TbDots>
         </button>
       </div>
 
