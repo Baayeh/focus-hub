@@ -16,7 +16,7 @@ const Stopwatch = () => {
   const [isHidden, setIsHidden] = useState(false);
 
   const expandSection = () => {
-    current.style.display = 'none';
+    current.classList.add('hidden');
     setIsHidden(true);
     stopwatch.current.classList.add(
       'translate-y-16',
@@ -40,7 +40,7 @@ const Stopwatch = () => {
     );
     stopwatchBody.current.classList.add('stopwatch-body');
     stopwatchBody.current.classList.remove('stopwatchExpand-body');
-    current.style.display = 'block';
+    current.classList.remove('hidden');
   };
 
   useEffect(() => {
