@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primereact/resources/primereact.min.css";
-@import "primeicons/primeicons.css";
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
 
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primereact/resources/primereact.min.css";
-@import "primeicons/primeicons.css";
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
 
 @tailwind base;
 @tailwind components;
@@ -112,7 +112,7 @@ div.timer-card {
 }
 
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background: theme("colors.secondaryColor") !important;
+  background: theme('colors.secondaryColor') !important;
 }
 
 #alarmComponent .add-button-container button svg {
@@ -120,7 +120,7 @@ div.timer-card {
 }
 
 #alarmComponent button:hover {
-  background: theme("colors.secondaryColor");
+  background: theme('colors.secondaryColor');
 }
 
 .add-alarm-dialog .am-pm {
@@ -141,8 +141,8 @@ div.timer-card {
 .p-togglebutton.p-button {
   padding: 0 !important;
   border-radius: 50%;
-  border: 1px solid theme("colors.primaryColor") !important;
-  color: theme("colors.primaryColor") !important;
+  border: 1px solid theme('colors.primaryColor') !important;
+  color: theme('colors.primaryColor') !important;
 }
 
 .p-dropdown.p-component {
@@ -162,16 +162,45 @@ div.timer-card {
 .p-dropdown:not(.p-disabled).p-focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem theme("colors.primaryLightColor");
-  border-color: theme("colors.primaryColor");
+  box-shadow: 0 0 0 0.2rem theme('colors.primaryLightColor');
+  border-color: theme('colors.primaryColor');
 }
 
 .p-dropdown:not(.p-disabled):hover {
-  border-color: theme("colors.primaryColor");
+  border-color: theme('colors.primaryColor');
 }
 
 .add-location-dialog button {
   width: 100% !important;
+}
+
+.stopwatch {
+  @apply h-screen flex flex-col items-center pt-36  max-w-lg mx-auto gap-5;
+}
+
+.header-actions {
+  @apply text-primaryColor flex w-full justify-end pr-8;
+}
+
+.stopwatch-body {
+  @apply flex items-baseline text-6xl md:text-8xl transition ease-in-out duration-300;
+}
+
+.stopwatchExpand-body {
+  @apply flex items-baseline text-7xl md:text-9xl transition ease-in-out duration-300;
+}
+
+.digits {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  @apply flex flex-col items-center;
+}
+
+button.start-stopwatch {
+  @apply text-3xl bg-primaryColor hover:bg-red-700 transition-all ease-out duration-300 shadow shadow-gray-600 text-white rounded-full p-2;
+}
+
+button.reset-stopwatch {
+  @apply text-3xl bg-slate-300 shadow shadow-gray-600 hover:bg-slate-400 transition-all ease-out duration-300 rounded-full p-2;
 }
 
 @media (min-width: 320px) {
