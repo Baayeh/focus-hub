@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primereact/resources/primereact.min.css";
-@import "primeicons/primeicons.css";
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
 
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primereact/resources/primereact.min.css";
-@import "primeicons/primeicons.css";
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
+@import 'react-circular-progressbar/dist/styles.css';
 
 @import "react-circular-progressbar/dist/styles.css";
 @import "swiper/css";
@@ -18,8 +20,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: "Comfortaa", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, "Segoe UI", Roboto;
+    font-family: 'Comfortaa', ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto;
   }
 
   body {
@@ -127,7 +129,7 @@ div.timer-card {
 }
 
 .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background: theme("colors.secondaryColor") !important;
+  background: theme('colors.secondaryColor') !important;
 }
 
 #alarmComponent .add-button-container button svg {
@@ -135,7 +137,7 @@ div.timer-card {
 }
 
 #alarmComponent button:hover {
-  background: theme("colors.secondaryColor");
+  background: theme('colors.secondaryColor');
 }
 
 .add-alarm-dialog .am-pm {
@@ -156,8 +158,8 @@ div.timer-card {
 .p-togglebutton.p-button {
   padding: 0 !important;
   border-radius: 50%;
-  border: 1px solid theme("colors.primaryColor") !important;
-  color: theme("colors.primaryColor") !important;
+  border: 1px solid theme('colors.primaryColor') !important;
+  color: theme('colors.primaryColor') !important;
 }
 
 .p-dropdown.p-component {
@@ -177,12 +179,12 @@ div.timer-card {
 .p-dropdown:not(.p-disabled).p-focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem theme("colors.primaryLightColor");
-  border-color: theme("colors.primaryColor");
+  box-shadow: 0 0 0 0.2rem theme('colors.primaryLightColor');
+  border-color: theme('colors.primaryColor');
 }
 
 .p-dropdown:not(.p-disabled):hover {
-  border-color: theme("colors.primaryColor");
+  border-color: theme('colors.primaryColor');
 }
 
 .add-location-dialog button {
