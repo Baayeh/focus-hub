@@ -57,7 +57,7 @@ const FocusComponent = () => {
           ''
         )}
         <div className="text-primaryColor flex w-full justify-end">
-          <button type="button" className="hover:bg-slate-100 p-2 rounded-lg">
+          <button type="button" className="hover:bg-slate-100 p-2 rounded">
             <TbPictureInPictureTop />
           </button>
           <button type="button" className="hover:bg-slate-100 p-2 rounded">
