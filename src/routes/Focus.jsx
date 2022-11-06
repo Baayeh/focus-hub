@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Focus = () => {
   return (
     <section
       id="focus"
-      className="py-4 md:py-10 px-5  grid grid-cols-1 md:grid-cols-2 gap-x-5"
+      className="py-4 md:py-10 px-5 lg:max-w-[70rem]  grid grid-cols-1 md:grid-cols-2 gap-x-5"
     >
       <div className="focus-todo-section">
         <div className="card bg-white shadow-white-shadow rounded-lg mb-3">
