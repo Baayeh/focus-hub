@@ -74,7 +74,6 @@ const WorldClock = () => {
         header="Add New Location"
         closable={false}
         visible={displayAddLocation}
-        style={{ width: "50vw" }}
         footer={renderFooter}
         onHide={() => setdisplayAddLocation(false)}
         className="add-location-dialog"

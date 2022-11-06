@@ -174,7 +174,8 @@ div.timer-card {
 }
 
 @media (min-width: 320px) {
-  .add-alarm-dialog {
+  .add-alarm-dialog,
+  .add-location-dialog {
     width: 95vw !important;
   }
 
@@ -186,7 +187,8 @@ div.timer-card {
 }
 
 @media (min-width: 768px) {
-  .add-alarm-dialog {
+  .add-alarm-dialog,
+  .add-location-dialog {
     width: 50vw !important;
   }
 
@@ -198,7 +200,8 @@ div.timer-card {
 }
 
 @media (min-width: 1204px) {
-  .add-alarm-dialog {
+  .add-alarm-dialog,
+  .add-location-dialog {
     width: 30vw !important;
   }
 }
