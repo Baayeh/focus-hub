@@ -57,6 +57,7 @@ const Alarm = () => {
         <SpeedDial
           model={items}
           direction="up"
+          className={editMode && "p-speeddial-opened"}
           showIcon={<BsPlusCircleDotted />}
         />
       </div>
