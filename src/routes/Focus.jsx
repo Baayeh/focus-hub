@@ -1,4 +1,6 @@
 import React from "react";
+import FocusProgress from "../components/FocusProgress";
+import MusicPlaylist from "../components/musicPlaylist";
 
 const Focus = () => {
   return (
@@ -14,12 +16,16 @@ const Focus = () => {
           <div className="card-body p-3">Todo</div>
         </div>
       </div>
-      <div className="progress-entertainment">
+      <div className="progress-entertainment w-[100%] lg:w-[80%]">
         <div className="card bg-white shadow-white-shadow rounded-lg mb-3">
-          <div className="card-body p-3">Progress</div>
+          <div className="card-body p-4">
+            <FocusProgress></FocusProgress>
+          </div>
         </div>
         <div className="card bg-white shadow-white-shadow rounded-lg mb-3">
-          <div className="card-body p-3">Spotify</div>
+          <div className="card-body p-3">
+            <MusicPlaylist></MusicPlaylist>
+          </div>
         </div>
       </div>
     </section>

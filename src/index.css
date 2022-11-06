@@ -8,6 +8,9 @@
 @import "primereact/resources/primereact.min.css";
 @import "primeicons/primeicons.css";
 
+@import "react-circular-progressbar/dist/styles.css";
+@import "swiper/css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,6 +107,18 @@
 
   .alarm-btn-container {
     @apply min-w-[100px] text-center;
+  }
+
+  .swiper-nav-btn {
+    @apply w-[35px] h-[35px] rounded-md bg-white shadow-lg flex items-center justify-center;
+  }
+
+  .swiper-nav-btn.left {
+    @apply absolute top-[50%] left-[-20px] z-10 -translate-y-[50%];
+  }
+
+  .swiper-nav-btn.right {
+    @apply absolute top-[50%] right-[-20px] z-10 -translate-y-[50%];
   }
 }
 
