@@ -15,7 +15,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: "Comfortaa", cursive;
+    font-family: "Comfortaa", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto;
   }
 
   body {
@@ -62,23 +63,27 @@
   }
 
   #alarmComponent {
-    @apply min-h-full bg-slate-50 py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
+    @apply min-h-full py-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-max;
   }
 
   #alarmComponent .add-button-container {
-    @apply fixed right-[20px] bottom-[100px] md:right-[50%] md:translate-x-[50%] lg:right-[30px] lg:translate-x-0 lg:bottom-[30px];
+    @apply fixed right-[100px] bottom-[110px] md:right-[50%] lg:right-[120px] lg:bottom-[50px] h-[180px];
   }
 
-  #alarmComponent .add-button-container button {
-    @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center;
+  #alarmComponent .add-button-container .p-speeddial-button {
+    @apply bg-white shadow-white-shadow w-[80px] h-[80px] md:w-[120px] md:h-[120px] lg:w-[90px] lg:h-[90px] rounded-full flex items-center justify-center text-secondaryColor border-none hover:text-secondaryColor;
+  }
+
+  .alarm-box.active {
+    @apply bg-white;
   }
 
   .alarm-box {
-    @apply bg-white rounded-xl shadow-white-shadow h-max p-5 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out;
+    @apply bg-slate-200 rounded-xl shadow-white-shadow h-max p-5 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ease-in-out text-gray-400;
   }
 
-  .alarm-box .removeBtn svg {
-    @apply text-[20px] text-red-700;
+  .alarm-box .days-bubble {
+    @apply bg-gray-400;
   }
 
   #world-clock {
@@ -91,6 +96,14 @@
 
   #world-clock path {
     @apply fill-slate-600;
+  }
+
+  .alarmInputField {
+    @apply text-center text-[45px] p-0 border-0 font-extrabold bg-transparent max-w-[100px] focus:outline-none focus:bg-gray-300 rounded-md;
+  }
+
+  .alarm-btn-container {
+    @apply min-w-[100px] text-center;
   }
 }
 
@@ -108,18 +121,6 @@ div.timer-card {
 
 #alarmComponent button:hover {
   background: theme("colors.secondaryColor");
-}
-
-#alarmComponent button:hover svg {
-  color: #fff;
-}
-
-.add-alarm-dialog .p-inputnumber-input {
-  width: 20%;
-  text-align: center;
-  font-size: 50px;
-  padding: 0;
-  border: none;
 }
 
 .add-alarm-dialog .am-pm {

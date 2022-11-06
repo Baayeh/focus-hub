@@ -13,6 +13,9 @@ module.exports = {
         "inner-custom": "inset 0 2px 4px 0 rgb(0 0 0 / 0.15)",
         "white-shadow": "5px 5px 15px #d1d9e6, -5px -5px 15px #ffffff",
       },
+      fontFamily: {
+        Comfortaa: ["Comfortaa", "Segoe UI"],
+      },
     },
   },
   plugins: [],
