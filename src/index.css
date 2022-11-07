@@ -220,6 +220,12 @@ button.reset-stopwatch {
   @apply text-3xl bg-slate-300 shadow shadow-gray-600 hover:bg-slate-400 transition-all ease-out duration-300 rounded-full p-2;
 }
 
+.playlist-mix:hover .play-btn {
+  opacity: 1;
+  transition: 0.4s;
+  transform: translateY(-8px);
+}
+
 @media (min-width: 320px) {
   .add-alarm-dialog,
   .add-location-dialog {
