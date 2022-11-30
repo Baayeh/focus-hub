@@ -15,8 +15,11 @@ const FocusComponent = () => {
   const [mins, setMins] = useState(15);
   const [secs, setSecs] = useState(0);
   const [breakTime, setBreakTime] = useState(0);
+  const [isbreakTime, setIsBreakTime] = useState(false);
   const [session, setSession] = useState(false);
   const [count, setCount] = useState(100);
+
+  const makeTwoDigits = (num) => (num < 10 ? '0' : '') + num;
 
   const increaseTimer = () => {
     setMins((prevMins) => prevMins + 15);
@@ -30,43 +33,58 @@ const FocusComponent = () => {
 
   const startSession = (e) => {
     setSession(true);
-    setTimer(mins);
+    setTimer(1);
     setSecs(59);
   };
 
   const stopSession = () => {
     setSession(false);
+    setIsBreakTime(false);
+    setTimer(0);
     setSecs(0);
+    setCount(100);
   };
 
   useEffect(() => {
     let interval;
     if (session) {
       interval = setInterval(() => {
-        setSecs((prevSecs) => prevSecs - 1);
-        if (secs !== 0) {
-        }
+        setSecs((prevSecs) => makeTwoDigits(prevSecs - 1));
       }, 1000);
 
-      if (secs === 0) {
-        setTimer((prevTimer) => prevTimer - 1);
+      if (Number(secs) === 0) {
+        setTimer((prevTimer) => makeTwoDigits(prevTimer - 1));
         setSecs(59);
-        setCount((prevCount) => prevCount - Math.round(prevCount / timer));
+        setCount(
+          (prevCount) => prevCount - Math.round(prevCount / Number(timer))
+        );
       }
 
-      if (timer === 0) {
-        setSession(false);
-        setSecs(0);
-        
+      if (Number(timer) === 0 && Number(secs) === 0) {
+        if (breakTime > 0) {
+          setIsBreakTime(true);
+          setTimer(1);
+          setSecs(59);
+
+          // if (Number(timer) === 0 && Number(secs) === 0) {
+          //   setIsBreakTime(false);
+          //   setTimer(0);
+          //   setSecs(0);
+          // }
+        } else {
+          setIsBreakTime(false);
+          setSession(false);
+          setTimer(0);
+          setSecs(0);
+          setCount(100);
+        }
       }
     }
     return () => clearInterval(interval);
   }, [session, secs, timer]);
 
-  console.log(count);
-
   useEffect(() => {
-    const breakNo = Math.floor(mins / 20);
+    const breakNo = Math.floor(mins / 25);
     setBreakTime(breakNo);
 
     if (mins > 20) {
@@ -76,15 +94,6 @@ const FocusComponent = () => {
       setChecked(false);
     }
   }, [mins]);
-
-  // useEffect(() => {
-  //   if (mins > 20) {
-  //     setDisable(false);
-  //   } else {
-  //     setDisable(true);
-  //     setChecked(false);
-  //   }
-  // }, [mins]);
 
   return (
     <div className="focus-comonent card bg-white shadow-white-shadow rounded-lg mb-3 p-2">
@@ -176,13 +185,32 @@ const FocusComponent = () => {
               styles={buildStyles({ pathColor: '#dd1818', textColor: '#f88' })}
               counterClockwise={true}
             >
-              <div className="text-6xl md:text-6xl font-bold">
-                <span>{timer}</span>
-                <span>:</span>
-                <span>{secs}</span>
-              </div>
+              {!isbreakTime ? (
+                <div
+                  className="text-6xl md:text-6xl"
+                  style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}
+                >
+                  <span>{timer}</span>
+                  <span>:</span>
+                  <span>{secs}</span>
+                </div>
+              ) : (
+                <div
+                  className="text-2xl md:text-2xl"
+                  style={{ fontFamily: 'Verdana, Geneva, Tahoma, sans-serif' }}
+                >
+                  <h3>Break Time</h3>
+                  <div className="font-semibold flex justify-center text-3xl md:text-4xl">
+                    <span>{timer}</span>
+                    <span>:</span>
+                    <span>{secs}</span>
+                  </div>
+                </div>
+              )}
             </CircularProgressbarWithChildren>
           </div>
+
+          {breakTime > 0 && <p>Up Next: 5 mins break</p>}
 
           <div className="stop-session flex justify-center my-8">
             <button
