@@ -9,8 +9,6 @@ const MusicPlaylist = () => {
   const [recentSwiper, setRecentSwiperInstance] = useState(null);
   const [focusSwiper, setFocusSwiperInstance] = useState(null);
 
-  console.log(window.innerWidth);
-
   return (
     <section id="music-playlist">
       <div className="playlist-header flex items-center justify-between">

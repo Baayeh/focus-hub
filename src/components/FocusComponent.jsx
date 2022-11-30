@@ -11,42 +11,80 @@ import {
 const FocusComponent = () => {
   const [disable, setDisable] = useState(true);
   const [checked, setChecked] = useState(false);
-  const [timer, setTimer] = useState(15);
+  const [timer, setTimer] = useState(0);
+  const [mins, setMins] = useState(15);
+  const [secs, setSecs] = useState(0);
   const [breakTime, setBreakTime] = useState(0);
   const [session, setSession] = useState(false);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(100);
 
   const increaseTimer = () => {
-    setTimer((prevTimer) => prevTimer + 15);
+    setMins((prevMins) => prevMins + 15);
   };
 
   const decreaseTimer = () => {
-    if (timer > 15) {
-      setTimer((prevTimer) => prevTimer - 15);
+    if (mins > 15) {
+      setMins((prevMins) => prevMins - 15);
     }
   };
 
-  const startSession = () => {
+  const startSession = (e) => {
     setSession(true);
+    setTimer(mins);
+    setSecs(59);
   };
 
   const stopSession = () => {
     setSession(false);
+    setSecs(0);
   };
 
   useEffect(() => {
-    const breakNo = Math.floor(timer / 20);
-    setBreakTime(breakNo);
-  }, [timer]);
+    let interval;
+    if (session) {
+      interval = setInterval(() => {
+        setSecs((prevSecs) => prevSecs - 1);
+        if (secs !== 0) {
+        }
+      }, 1000);
+
+      if (secs === 0) {
+        setTimer((prevTimer) => prevTimer - 1);
+        setSecs(59);
+        setCount((prevCount) => prevCount - Math.round(prevCount / timer));
+      }
+
+      if (timer === 0) {
+        setSession(false);
+        setSecs(0);
+        
+      }
+    }
+    return () => clearInterval(interval);
+  }, [session, secs, timer]);
+
+  console.log(count);
 
   useEffect(() => {
-    if (timer > 20) {
+    const breakNo = Math.floor(mins / 20);
+    setBreakTime(breakNo);
+
+    if (mins > 20) {
       setDisable(false);
     } else {
       setDisable(true);
       setChecked(false);
     }
-  }, [timer]);
+  }, [mins]);
+
+  // useEffect(() => {
+  //   if (mins > 20) {
+  //     setDisable(false);
+  //   } else {
+  //     setDisable(true);
+  //     setChecked(false);
+  //   }
+  // }, [mins]);
 
   return (
     <div className="focus-comonent card bg-white shadow-white-shadow rounded-lg mb-3 p-2">
@@ -75,7 +113,7 @@ const FocusComponent = () => {
 
           <div className="set-focus-time border-b-2 border-primaryColor bg-slate-50 max-w-[9rem] mx-auto rounded overflow-hidden flex mt-8 hover:bg-slate-100">
             <div className="focus-time w-[8rem] flex flex-col items-center justify-center p-3">
-              <span className="text-4xl font-bold">{timer}</span>
+              <span className="text-4xl font-bold">{mins}</span>
               <span className="text-xs">mins</span>
             </div>
             <div className="focus-time-actions flex flex-col items-center justify-center border-l border-slate-200">
@@ -136,11 +174,12 @@ const FocusComponent = () => {
             <CircularProgressbarWithChildren
               value={count}
               styles={buildStyles({ pathColor: '#dd1818', textColor: '#f88' })}
+              counterClockwise={true}
             >
               <div className="text-6xl md:text-6xl font-bold">
                 <span>{timer}</span>
                 <span>:</span>
-                <span>00</span>
+                <span>{secs}</span>
               </div>
             </CircularProgressbarWithChildren>
           </div>
