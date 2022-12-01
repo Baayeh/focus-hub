@@ -3,9 +3,10 @@ import { TbDots } from "react-icons/tb";
 import { BsSpotify, BsArrowLeftShort } from "react-icons/bs";
 import MusicOverview from "../components/musicOverview";
 import AllMusicPlaylist from "../components/allMusicPlalist";
+import ViewPlaylist from "../components/ViewPlaylist";
 
 const MusicPlaylist = () => {
-  const [pageState, setPageState] = useState("overview");
+  const [pageState, setPageState] = useState("viewPlaylist");
   const [playlistType, setPlaylistType] = useState(null);
 
   const viewAllPlaylist = (playlistType, page) => {
@@ -23,6 +24,8 @@ const MusicPlaylist = () => {
         return (
           <AllMusicPlaylist playlistType={playlistType}></AllMusicPlaylist>
         );
+      case "viewPlaylist":
+        return <ViewPlaylist></ViewPlaylist>;
 
       // default:
       //   return (
