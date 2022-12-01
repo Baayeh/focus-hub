@@ -34,9 +34,7 @@ const MusicPlaylist = () => {
     }
   };
 
-  useEffect(() => {
-    renderMusicPage();
-  }, [pageState]);
+  console.log(window.innerWidth);
 
   return (
     <section id="music-playlist" className="overflow-hidden">
