@@ -14,6 +14,8 @@ const FocusComponent = () => {
   const [timer, setTimer] = useState(0);
   const [mins, setMins] = useState(15);
   const [secs, setSecs] = useState(0);
+  const [breakTimer, setBreakTimer] = useState(0);
+  const [breakSecs, setBreaksecs] = useState(0);
   const [breakTime, setBreakTime] = useState(0);
   const [isbreakTime, setIsBreakTime] = useState(false);
   const [session, setSession] = useState(false);
@@ -33,8 +35,11 @@ const FocusComponent = () => {
 
   const startSession = (e) => {
     setSession(true);
-    setTimer(1);
-    setSecs(59);
+    setTimer(0);
+    setSecs(30);
+    setBreakTimer(0);
+    setBreaksecs(0);
+    setCount(100);
   };
 
   const stopSession = () => {
@@ -47,7 +52,40 @@ const FocusComponent = () => {
 
   useEffect(() => {
     let interval;
-    if (session) {
+
+    if (isbreakTime) {
+      interval = setInterval(() => {
+        setBreaksecs((prevSecs) => makeTwoDigits(prevSecs - 1));
+      }, 1000);
+
+      if (Number(breakSecs) === 0) {
+        setBreakTimer((prevTimer) => makeTwoDigits(prevTimer - 1));
+        setBreaksecs(59);
+        setCount(
+          (prevCount) => prevCount - Math.round(prevCount / Number(timer))
+        );
+      }
+
+      if (Number(breakTimer) === 0 && Number(breakSecs) === 0) {
+        setBreakTimer(0);
+        setBreaksecs(0);
+        setCount(100);
+        setIsBreakTime(false);
+        setBreakTime(prevCount => prevCount - 1)
+        clearInterval(interval)
+        setTimer(0);
+        setSecs(30);
+      }
+    }
+
+    return () => clearInterval(interval)
+  }, [isbreakTime, breakSecs, breakTimer]);
+
+  console.log(breakTimer, breakSecs, isbreakTime, breakTime, secs, timer)
+
+  useEffect(() => {
+    let interval;
+    if (session && !isbreakTime) {
       interval = setInterval(() => {
         setSecs((prevSecs) => makeTwoDigits(prevSecs - 1));
       }, 1000);
@@ -63,20 +101,17 @@ const FocusComponent = () => {
       if (Number(timer) === 0 && Number(secs) === 0) {
         if (breakTime > 0) {
           setIsBreakTime(true);
-          setTimer(1);
-          setSecs(59);
-
-          // if (Number(timer) === 0 && Number(secs) === 0) {
-          //   setIsBreakTime(false);
-          //   setTimer(0);
-          //   setSecs(0);
-          // }
-        } else {
-          setIsBreakTime(false);
-          setSession(false);
+          setBreakTimer(0);
+          setBreaksecs(15);
+        }else{
+          clearInterval(interval)
+          setSession(false)
           setTimer(0);
           setSecs(0);
           setCount(100);
+          setBreakTimer(0);
+          setBreaksecs(0);
+          setBreakCount(mins)
         }
       }
     }
@@ -84,8 +119,7 @@ const FocusComponent = () => {
   }, [session, secs, timer]);
 
   useEffect(() => {
-    const breakNo = Math.floor(mins / 25);
-    setBreakTime(breakNo);
+    setBreakCount(mins)
 
     if (mins > 20) {
       setDisable(false);
@@ -94,6 +128,11 @@ const FocusComponent = () => {
       setChecked(false);
     }
   }, [mins]);
+
+  const setBreakCount = (mins) => {
+    const breakNo = Math.floor(mins / 25);
+    setBreakTime(breakNo);
+  }
 
   return (
     <div className="focus-comonent card bg-white shadow-white-shadow rounded-lg mb-3 p-2">
@@ -201,9 +240,9 @@ const FocusComponent = () => {
                 >
                   <h3>Break Time</h3>
                   <div className="font-semibold flex justify-center text-3xl md:text-4xl">
-                    <span>{timer}</span>
+                    <span>{breakTimer}</span>
                     <span>:</span>
-                    <span>{secs}</span>
+                    <span>{breakSecs}</span>
                   </div>
                 </div>
               )}
