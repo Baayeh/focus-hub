@@ -12,15 +12,18 @@
     "@reduxjs/toolkit": "^1.8.6",
     "animate.css": "^4.1.1",
     "formik": "^2.2.9",
+    "framer-motion": "^7.6.5",
     "primeicons": "^6.0.1",
     "primereact": "^8.7.0",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "react-simple-maps": "^3.0.0",
     "react-time-picker": "^5.0.0",
+    "swiper": "^8.4.4",
     "yup": "^0.32.11"
   },
   "devDependencies": {
