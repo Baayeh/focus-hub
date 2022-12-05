@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WorldMap from "../components/World-map";
 import LocationTimestamp from "../components/Location-timestamp";
 import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
@@ -7,10 +7,17 @@ import { TbPlus } from "react-icons/tb";
 import { BsCheckAll } from "react-icons/bs";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
+import { useSelector } from "react-redux";
 
 const WorldClock = () => {
   const [displayAddLocation, setdisplayAddLocation] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [worldTime, setWorldTime] = useState([]);
+  const worldTimeStore = useSelector((state) => state.worldClock.worldTime);
+
+  useEffect(() => {
+    setWorldTime(worldTimeStore);
+  }, [worldTimeStore]);
 
   const updateEditedLocations = () => {
     setEditMode(false);
@@ -48,7 +55,16 @@ const WorldClock = () => {
         <WorldMap></WorldMap>
       </section>
       <section className="location-time-list w-full sm:w-full md:w-[80%] lg:w-[40%] mx-auto mt-2 sm:mt-2 md:mt-0 lg:mt-5 p-4">
-        <LocationTimestamp editMode={editMode}></LocationTimestamp>
+        {worldTime.map((locationTime, index) => {
+          return (
+            <React.Fragment key={index}>
+              <LocationTimestamp
+                editMode={editMode}
+                locationTime={locationTime}
+              ></LocationTimestamp>
+            </React.Fragment>
+          );
+        })}
       </section>
 
       <div className="action-btn-container fixed bottom-[100px] right-[20px] sm:bottom-[100px] md:bottom-[30px] py-3 px-4 bg-white shadow-lg rounded-lg">
