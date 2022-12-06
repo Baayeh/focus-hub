@@ -26,11 +26,23 @@ export const fetchUserTime = createAsyncThunk(
       contentType: "application/json",
     });
 
-    console.log(response);
-
     return {
       ...response.data,
       location,
     };
+  }
+);
+
+export const searchLocation = createAsyncThunk(
+  "worldClock/searchLocation",
+  async (location) => {
+    const response = await axios({
+      method: "GET",
+      url: "https://api.api-ninjas.com/v1/city?name=" + location,
+      headers: { "X-Api-Key": API_KEY },
+      contentType: "application/json",
+    });
+
+    return response.data;
   }
 );

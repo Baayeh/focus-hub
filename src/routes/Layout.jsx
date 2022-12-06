@@ -5,7 +5,10 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import { saveGeoLocation } from "../store/world-clock/worldClock.slice";
-import { fetchUserLocation } from "../store/world-clock/worldClock.thunk";
+import {
+  fetchUserLocation,
+  fetchUserTime,
+} from "../store/world-clock/worldClock.thunk";
 
 const Layout = () => {
   const navBar = useRef();
@@ -30,7 +33,11 @@ const Layout = () => {
 
   useEffect(() => {
     if (userGeoLocation) {
-      dispatch(fetchUserLocation(userGeoLocation));
+      dispatch(fetchUserLocation(userGeoLocation))
+        .unwrap()
+        .then((response) => {
+          dispatch(fetchUserTime(response[0].name));
+        });
     }
   }, [userGeoLocation]);
 

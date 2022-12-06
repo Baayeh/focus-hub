@@ -11,22 +11,24 @@ import { fetchUserTime } from "../store/world-clock/worldClock.thunk";
 const WorldMap = () => {
   const [geoUrl, setgeoUrl] = useState(null);
   const [markers, setMarkers] = useState([]);
-  const userLocation = useSelector((state) => state.worldClock.userLocation);
+  const locationMarkers = useSelector(
+    (state) => state.worldClock.locationMarkers
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (userLocation) {
-      dispatch(fetchUserTime(userLocation.name));
-      const currentMarkers = [...markers];
-      currentMarkers[0] = {
-        markerOffset: -30,
-        name: userLocation.name,
-        coordinates: [userLocation.longitude, userLocation.latitude],
-      };
-
-      setMarkers(currentMarkers);
+    if (locationMarkers.length) {
+      setMarkers(
+        locationMarkers.map((location) => {
+          return {
+            markerOffset: -30,
+            name: location.name,
+            coordinates: [location.longitude, location.latitude],
+          };
+        })
+      );
     }
-  }, [userLocation]);
+  }, [locationMarkers]);
 
   useEffect(() => {
     const geoUrlJSON =

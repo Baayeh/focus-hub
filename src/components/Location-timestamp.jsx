@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { BsMoon, BsTrash, BsSun } from "react-icons/bs";
 import PropTypes from "prop-types";
 import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 
 const LocationTimestamp = ({ editMode, locationTime }) => {
+  const getTimeZonedFormat = () => {
+    return formatInTimeZone(
+      locationTime.datetime,
+      locationTime.timezone,
+      "zzz"
+    );
+  };
+
   const getMeridian = () => {
     return format(new Date(locationTime.datetime), "aa");
   };
@@ -42,7 +52,7 @@ const LocationTimestamp = ({ editMode, locationTime }) => {
         <div className="text-left">
           <h6 className="font-medium text-sm">{locationTime.location}</h6>
           <span className="text-gray-400 font-medium text-xs">
-            {getCurrentDate()},
+            {getCurrentDate()}, {getTimeZonedFormat()}
           </span>
         </div>
       </div>
