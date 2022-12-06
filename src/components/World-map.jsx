@@ -1,37 +1,41 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
 } from "react-simple-maps";
-
-const markers = [
-  {
-    markerOffset: -30,
-    name: "Buenos Aires",
-    coordinates: [-58.3816, -34.6037],
-  },
-  { markerOffset: 15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-  { markerOffset: 15, name: "Brasilia", coordinates: [-47.8825, -15.7942] },
-  { markerOffset: 15, name: "Santiago", coordinates: [-70.6693, -33.4489] },
-  { markerOffset: 15, name: "Bogota", coordinates: [-74.0721, 4.711] },
-  { markerOffset: 15, name: "Quito", coordinates: [-78.4678, -0.1807] },
-  { markerOffset: -30, name: "Georgetown", coordinates: [-58.1551, 6.8013] },
-  { markerOffset: -30, name: "Asuncion", coordinates: [-57.5759, -25.2637] },
-  { markerOffset: 15, name: "Paramaribo", coordinates: [-55.2038, 5.852] },
-  { markerOffset: 15, name: "Montevideo", coordinates: [-56.1645, -34.9011] },
-  { markerOffset: 15, name: "Caracas", coordinates: [-66.9036, 10.4806] },
-  { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] },
-];
+import { fetchUserTime } from "../store/world-clock/worldClock.thunk";
 
 const WorldMap = () => {
   const [geoUrl, setgeoUrl] = useState(null);
+  const [markers, setMarkers] = useState([]);
+  const locationMarkers = useSelector(
+    (state) => state.worldClock.locationMarkers
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (locationMarkers.length) {
+      setMarkers(
+        locationMarkers.map((location) => {
+          return {
+            markerOffset: -30,
+            name: location.name,
+            coordinates: [location.longitude, location.latitude],
+          };
+        })
+      );
+    }
+  }, [locationMarkers]);
+
   useEffect(() => {
     const geoUrlJSON =
       "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
     setgeoUrl(geoUrlJSON);
   }, []);
+
   return (
     <ComposableMap>
       <Geographies geography={geoUrl}>
@@ -62,7 +66,7 @@ const WorldMap = () => {
           <text
             textAnchor="middle"
             y={markerOffset}
-            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+            style={{ fontFamily: "system-ui", fill: "#F53" }}
           >
             {name}
           </text>
