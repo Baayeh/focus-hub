@@ -18,6 +18,7 @@ import {
   clearSearchResults,
   updateLocationMarker,
 } from "../store/world-clock/worldClock.slice";
+import { Skeleton } from "primereact/skeleton";
 
 const WorldClock = () => {
   const worldTimeStore = useSelector((state) => state.worldClock.worldTime);
@@ -25,6 +26,9 @@ const WorldClock = () => {
     (state) => state.worldClock.locationSearchResult
   );
   const searching = useSelector((state) => state.worldClock.locationSearching);
+  const fetchingLocationWorldTime = useSelector(
+    (state) => state.worldClock.loading
+  );
 
   const [displayAddLocation, setdisplayAddLocation] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -142,6 +146,9 @@ const WorldClock = () => {
             </React.Fragment>
           );
         })}
+        {fetchingLocationWorldTime && (
+          <Skeleton width="100%" height="4rem" className="mt-4"></Skeleton>
+        )}
       </section>
 
       <div className="action-btn-container fixed bottom-[100px] right-[20px] sm:bottom-[100px] md:bottom-[30px] py-3 px-4 bg-white shadow-lg rounded-lg">
@@ -192,8 +199,7 @@ const WorldClock = () => {
           ref={op}
           showCloseIcon
           id="overlay_panel"
-          style={{ width: "400px" }}
-          className="overlaypanel-demo"
+          className="overlaypanel-demo w-[357px] md:w-[400px] left-[13px] md:left-0"
         >
           <ul className="list-group">
             {locationSearchResult.length ? (
